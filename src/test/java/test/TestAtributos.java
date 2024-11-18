@@ -52,8 +52,8 @@ public class TestAtributos {
 		tv2.setMarca(marca2);
 		
 		boolean ok = false;
-		if (tv1.getMarca().getNombre().equals("Mitorola") && tv1.getCanal() == 1 && tv1.getVolumen() == 1 && tv1.getPrecio() == 500 && !tv1.getEstado() && tv1.getControl() == null &&
-			tv2.getMarca().getNombre().equals("Ipple") && tv2.getCanal() == 5 && tv2.getVolumen() == 3 && tv2.getPrecio() == 1000 && tv2.getEstado() && tv2.getControl() != null)
+		if (tv1.getMarca().getNombre().equals("Mitorola") && tv1.getCanal() == 1 && tv1.getVolumen() == 1 && tv1.getPrecio() == 500 && !tv1.getEstado() && tv1.getCanal() == null &&
+			tv2.getMarca().getNombre().equals("Ipple") && tv2.getCanal() == 5 && tv2.getVolumen() == 3 && tv2.getPrecio() == 1000 && tv2.getEstado() && tv2.getCanal() != null)
 			ok = true;
 		
 		assertTrue(ok, "Hay un problema con los metodos get/set o con el valor de los atributos de TV");

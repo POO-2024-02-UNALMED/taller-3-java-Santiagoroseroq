@@ -1,19 +1,36 @@
 package taller3.televisores;
-
 public class TV {
+    // Atributos de instancia
     private Marca marca;
-    private int canal = 1;
-    private int volumen = 1;
-    private boolean estado;
-    private static int numTVs = 0;
+    private int canal;
     private int precio;
+    private boolean estado;
+    private int volumen;
+    private Control control;
 
+    // Atributo de clase para contar televisores
+    private static int numTV = 0;
+
+    // Constructor
     public TV(Marca marca, boolean estado) {
         this.marca = marca;
         this.estado = estado;
-        numTVs++;
+        this.canal = 1;
+        this.volumen = 1;
+        this.precio = 500;
+        numTV++;  // Incrementar el contador al crear un televisor
     }
 
+    // Métodos estáticos para numTV
+    public static int getNumTV() {
+        return numTV;
+    }
+
+    public static void setNumTV(int num) {
+        numTV = num;
+    }
+
+    // Métodos get y set
     public Marca getMarca() {
         return marca;
     }
@@ -26,40 +43,8 @@ public class TV {
         return canal;
     }
 
-    public void setCanal(Control canal) {
-        if (estado && canal >= 1 && control <= 120) {
-            this.canal = canal;
-        }
-    }
-
-    public int getVolumen() {
-        return volumen;
-    }
-
-    public void setVolumen(int volumen) {
-        if (estado && volumen >= 0 && volumen <= 7) {
-            this.volumen = volumen;
-        }
-    }
-
-    public boolean getEstado() {
-        return estado;
-    }
-
-    public void turnOn() {
-        estado = true;
-    }
-
-    public void turnOff() {
-        estado = false;
-    }
-
-    public static int getNumTVs() {
-        return numTVs;
-    }
-
-    public static void setNumTVs(int numTVs) {
-        TV.numTVs = numTVs;
+    public void setCanal(int canal) {
+        this.canal = canal;
     }
 
     public int getPrecio() {
@@ -68,5 +53,60 @@ public class TV {
 
     public void setPrecio(int precio) {
         this.precio = precio;
+    }
+
+    public int getVolumen() {
+        return volumen;
+    }
+
+    public void setVolumen(int volumen) {
+        this.volumen = volumen;
+    }
+
+    public Control getControl() {
+        return control;
+    }
+
+    public void setControl(Control control) {
+        this.control = control;
+    }
+
+    // Métodos para gestionar el estado
+    public void turnOn() {
+        this.estado = true;
+    }
+
+    public void turnOff() {
+        this.estado = false;
+    }
+
+    public boolean getEstado() {
+        return estado;
+    }
+
+    // Métodos para cambiar el canal
+    public void canalUp() {
+        if (estado && canal < 120) {
+            canal++;
+        }
+    }
+
+    public void canalDown() {
+        if (estado && canal > 1) {
+            canal--;
+        }
+    }
+
+    // Métodos para cambiar el volumen
+    public void volumenUp() {
+        if (estado && volumen < 7) {
+            volumen++;
+        }
+    }
+
+    public void volumenDown() {
+        if (estado && volumen > 0) {
+            volumen--;
+        }
     }
 }
